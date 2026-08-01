@@ -5,7 +5,7 @@ title: Kimi K3 Architecture Blog
 date: 2026-08-01
 categories: [ai, llm,kimi k3]
 ---
-## ## Understanding Kimi K3's Architecture
+## Understanding Kimi K3's Architecture
 
 Kimi K3 has 2.8T parameters,MoE 104B params.It has native vision capabilities , 1 million context window. Built on Kimi Delta Attention , attention residuals , Stable LatentMoE, MLA(multi head latent attention) which i will discuss in this blog.I will just explain the "architecture" of the model,i will not touch pre training, post training or vision capabilities. Just NLP and basics.
 
