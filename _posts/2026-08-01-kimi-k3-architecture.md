@@ -2,7 +2,8 @@
 layout: post
 published: True
 title: Kimi K3 Architecture Blog
-date: 2026-08-01 -update- 05.08.2026
+date: 2026-08-01 
+last_modified_at: 2026-08-05
 categories: [ai, llm,kimi k3]
 ---
 ## Understanding Kimi K3's Architecture
@@ -57,7 +58,7 @@ Swish= sigmoid times input . It is not strict for negative values like ReLU.
 ## L2Norm 
 There is to L2 form. One is L2 Norm other one is L2 regularization.They might confuse them with each other, so I want to clarify this part:
   The L2 norm is a mathematical formula that measures the length or magnitude of a vector, while L2 regularization (or Ridge regression,tikhonov regularization) is a machine learning technique that adds the squared value of that norm to a model's loss function to prevent overfitting
-We apply L2Norm to q and k . Not v . because v has a lots of info itself, we do not want  to loss this informations so we do not normalize this vector. It is valuable for us . It fixes the dimensions of Q and K. 
+We apply L2Norm to q and k . Not v . because v has a lots of info itself, we do not want  to loss this informations so we do not normalize this vector. It is valueable for us . It fixes the dimensions of Q and K. 
 
 ## Chunkwise Parallel Form
 
@@ -96,7 +97,7 @@ MLA->GLOBAL.O(n^2). GOOD AT LONG TERM.
 ## Attention Residuals
 There is a problem with residuals.Let's think RNNs. They add all residuals cumulatively.
 ![RNN residuals](/assets/images/rnn_orig.png)
-Each residual is "valueable" they are basically have same valueable. But AttnRes solves this unfairity problem.Each layer can view all layers before and select them bu value. Each layer has "pseudo-query" and it represents "this layer looking for what in past layers?" Then compare with past layers key, sum values.It is like token based attention but reflect to layer based.
+Each residual is "valueable" they are basically have same value. But AttnRes solves this unfairity problem.Each layer can view all layers before and select them bu value. Each layer has "pseudo-query" and it represents "this layer looking for what in past layers?" Then compare with past layers key, sum values.It is like token based attention but reflect to layer based.
 There is a trade off. Each layer is not performing the task it is supposed to. They have extra "pseudo-query" + attention with all past layer outputs.So they offer block attention residuals.
 - Pseudo query does not change by token. It's learnable vector. Constant. Freezes after training.
 
