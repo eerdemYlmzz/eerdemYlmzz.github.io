@@ -976,3 +976,89 @@ references{
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "default_highlights";
 @import "svg-icons";
+
+
+/*********************/
+/* POST LIST (INDEX) */
+/*********************/
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-list-item {
+  display: flex;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid $lightGray;
+
+  @include mobile {
+    display: block;
+    padding: 12px 0;
+  }
+}
+
+.post-list-item:last-child {
+  border-bottom: none;
+}
+
+.post-list-date {
+  flex: 0 0 120px;
+  color: $gray;
+  font-family: $helveticaNeue;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  @include mobile {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+}
+
+.post-list-title {
+  font-family: $helveticaNeue;
+  font-size: 21px;
+  font-weight: 400;
+  color: $darkGray;
+  line-height: 1.3;
+
+  &:hover,
+  &:focus {
+    color: $blue;
+  }
+
+  @include mobile {
+    display: block;
+    font-size: 19px;
+  }
+}
+
+.post-nav {
+  float: none;
+  margin: 40px 0 0 0;
+  padding-top: 20px;
+  border-top: 1px solid $lightGray;
+  font-family: $helveticaNeue;
+  font-size: 16px;
+
+  a {
+    margin-left: 0;
+    color: $gray;
+
+    &:hover,
+    &:focus {
+      color: $blue;
+    }
+  }
+}
+
+.footer-copy {
+  margin: 12px 0 0 0;
+  color: $gray;
+  font-size: 14px;
+}
