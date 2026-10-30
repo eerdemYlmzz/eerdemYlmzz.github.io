@@ -18,7 +18,8 @@ As you can see above,there is a new attention type called "Kimi Delta Attention"
 
 Normal (softmax) attention has a problem. It is O(n^2). Because it compares every token with another,which is not efficient and not scalable So,they offer a new architecture.
 ## Linear Attention
-Instead of comparing all pairs,linear attention compresses tokens into 1 state. In self attention we dot product Q and K then pass them by softmax then dot product with V. It causes KV cache because we have 2 long matricies. In linear attention we dot product K and V then pass them to STATE then dot product with Q, which has compressed memory but less info. A trade off for sure.Decay controlling how much old information survives
+Instead of comparing all pairs,linear attention compresses tokens into 1 state. In self attention we dot product Q and K then pass them by softmax then dot product with V. It causes KV cache because we have 2 long matricies. In linear attention we dot product K and V then pass them to STATE then dot product with Q, which has compressed memory but less info. A trade off for sure.Decay controlling how much old information survives. Intuitively: K^t.V contains an abstract,summation,a general info about past tokens , then Q comes in and inspects the most relevant token. Do not understand it well... Is it really useful for KV cache? Well, yes!
+
 
 ![Linear vs Self Attention](/assets/images/linearvsself.png)
 
